@@ -8,7 +8,7 @@ public class Employee_Wages {
 	{
 		int wageHour = 20;
 		int fullHours = 8;
-		int partHours = 4;
+		int partHours = 4,present=0,absent=0,wage=0;
 		
 		Scanner scan = new Scanner(System.in);
 		
@@ -16,33 +16,38 @@ public class Employee_Wages {
 		
 		Random random = new Random();
 		
-		int randValue = random.nextInt(10);
+		
 		
 		int empType = scan.nextInt();
 		
-		switch (empType)
+		for(int i=0;i<20;i++)
 		{
+			int randValue = random.nextInt(10);
+			switch (empType)
+			{
 		
-		case 1:
-			if(randValue <= 6)
-			{
-				System.out.println("\n\tFull time Employee is present");
-				System.out.println("\n\tWage : "+(wageHour*fullHours));
-			}
-			else
-				System.out.println("\n\tEmployee is absent");
-			break;
-		case 2:
+			case 1:
+				if(randValue <= 6)
+				{
+					present++;
+					wage+=(wageHour*fullHours);
+				}
+				else
+					absent++;;
+				break;
+			case 2:
 			
-			if(randValue <= 6)
-			{
-				System.out.println("\n\tPart time Employee is present");
-				System.out.println("\n\tWage : "+(wageHour*partHours));
+				if(randValue <= 6)
+				{
+					present++;
+					wage+=(wageHour*partHours);
+				}
+				else
+					absent++;;
+				break;
 			}
-			else
-				System.out.println("\n\tEmployee is absent");
-			break;
 		}
+		System.out.println("\nPresent : "+present+"\nAbsent : "+absent+"\ntotal Wage for a month : "+wage);
 	}
 
 }
